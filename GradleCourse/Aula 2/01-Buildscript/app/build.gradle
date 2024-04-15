@@ -1,0 +1,48 @@
+// Plugins: O bloco 'plugins' adiciona funcionalidades ao projeto.
+plugins {
+    id 'application'
+}
+
+// Configuração do aplicativo:
+application {
+    // Quando o aplicativo é executado, o método 'main' desta classe será chamado.
+    mainClass = 'Project.App'
+}
+
+// Definição de variável:
+def variable = 10
+println "testing application" // Imprime uma mensagem de teste.
+
+println "variable value = $variable" // Imprime o valor da variável.
+
+// Alterando o valor da variável:
+variable = "now it's a string"
+println "new value = " + variable // Imprime o novo valor da variável.
+
+// Chamando uma função:
+function(variable)
+
+def function (x) {
+    println "inside function = $x" // Imprime o valor passado como argumento.
+}
+
+// Definindo um closure (bloco de código):
+def myClosure = {
+    println "in my custom closure" // Imprime uma mensagem específica.
+}
+
+def a = myClosure
+a() // Executa o closure.
+
+// Definindo uma classe:
+class MyClass {
+    String varTest = "Variable inside a Class" // Variável dentro da classe.
+
+    def func () {
+        println "varTest = $varTest" // Imprime o valor da variável da classe.
+    }
+}
+
+// Criando uma instância da classe e chamando o método 'func':
+MyClass c = new MyClass()
+c.func()

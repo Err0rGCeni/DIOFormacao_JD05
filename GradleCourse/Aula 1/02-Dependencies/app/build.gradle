@@ -1,0 +1,21 @@
+plugins {
+    // Aplica o plugin 'application' para adicionar suporte à construção de uma aplicação de linha de comando em Java.
+    id 'application'
+}
+
+application {
+    // Define a classe principal da aplicação.
+    mainClass = 'Dependency.Main'
+}
+
+repositories {
+    // Configura o repositório JCenter como fonte para as dependências.
+    jcenter()
+}
+
+dependencies {
+    // Adiciona a biblioteca Guava como uma dependência de implementação.
+    implementation("com.google.guava:guava:30.1-jre")
+    // Alternativa
+    //implementation group: 'com.google.guava', name: 'guava', version: '30.1'
+}

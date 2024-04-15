@@ -1,0 +1,41 @@
+task turnOnTheCar {
+    doLast {
+        println ("turnOnTheCar")
+    }
+}
+
+task accelerateTheCar {
+    // A task só poderá ser executada após turnOnTheCar (chama a outra task automaticamente)
+    dependsOn "turnOnTheCar"
+    // Chama outra task após sua execução
+    finalizedBy "speedUp"
+    doLast {
+        println ("accelerateTheCar")
+    }
+}
+
+task taskAfterDefaultTask {
+    dependsOn "projects"
+    doLast {
+        println ("taskAfterDefaultTask")
+    }
+}
+
+task speedUp {
+    doLast {
+        println ("speedUp")
+    }
+}
+
+task turnOnTheRadio {
+    // Pode ser executada sozinha, mas se o gradle executar duas tasks, deve ser após a turnOnTheCar
+    mustRunAfter "turnOnTheCar"
+    doLast {
+        println ("turnOnTheRadio")
+    }
+}
+
+task driveCrazy {
+    // turnOnTheCar -> accelerateTheCar -> SpeedUp -> turnOnTheRadio
+    dependsOn = ["turnOnTheRadio", "accelerateTheCar"]
+}
